@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日文五十音互動學習 - 平假名、片假名、濁音半濁音</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎌 日文五十音學習</h1>
+      <p class="subtitle">互動式學習平假名、片假名與濁音半濁音</p>
+    </header>
+
+    <!-- 主選單 -->
+    <div class="main-tabs">
+      <button class="tab-button active" data-tab="hiragana">平假名 (ひらがな)</button>
+      <button class="tab-button" data-tab="katakana">片假名 (カタカナ)</button>
+      <button class="tab-button" data-tab="dakuon">濁音/半濁音</button>
+    </div>
+
+    <!-- 濁音子選單 -->
+    <div class="sub-tabs" id="dakuonSubTabs" style="display: none;">
+      <button class="sub-tab-button active" data-sub="hiragana-dakuon">平假名濁音/半濁音</button>
+      <button class="sub-tab-button" data-sub="katakana-dakuon">片假名濁音/半濁音</button>
+    </div>
+
+    <!-- 搜尋欄 -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="🔍 搜尋假名或羅馬拼音...">
+      <button id="randomButton">🎲 隨機顯示</button>
+      <button id="resetButton">🔄 顯示全部</button>
+    </div>
+
+    <!-- 統計資訊 -->
+    <div class="stats" id="stats">
+      <span>顯示：<strong id="displayCount">0</strong> 個字</span>
+    </div>
+
+    <!-- 假名卡片網格 -->
+    <div class="cards-grid" id="cardsGrid">
+      <!-- JavaScript 動態生成 -->
+    </div>
+
+    <!-- 詳細資訊面板 -->
+    <div class="detail-panel" id="detailPanel" style="display: none;">
+      <div class="detail-content">
+        <span class="close-btn" id="closeDetail">&times;</span>
+        <div class="detail-char" id="detailChar"></div>
+        <div class="detail-info">
+          <p><strong>羅馬拼音：</strong><span id="detailRomaji"></span></p>
+          <p><strong>類型：</strong><span id="detailType"></span></p>
+          <p><strong>行：</strong><span id="detailRow"></span></p>
+          <p><strong>段：</strong><span id="detailColumn"></span></p>
+        </div>
+        <button id="playSound">🔊 發音示範</button>
+      </div>
+    </div>
+
+    <!-- 互動測驗區 -->
+    <div class="quiz-section">
+      <h2>📝 聽音辨字測驗</h2>
+      <div class="quiz-container">
+        <div class="quiz-display">
+          <p class="quiz-question">這個讀音對應哪個假名？</p>
+          <div class="quiz-romaji" id="quizRomaji">a</div>
+          <div class="quiz-type" id="quizType">平假名</div>
+        </div>
+        <div class="quiz-options" id="quizOptions">
+          <!-- 動態生成選項 -->
+        </div>
+        <div class="quiz-result" id="quizResult"></div>
+        <button class="quiz-next" id="quizNext" style="display: none;">下一題 ➡️</button>
+      </div>
+      <div class="quiz-score">
+        <p>分數：<span id="score">0</span> / <span id="totalQuestions">0</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

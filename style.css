@@ -1,0 +1,392 @@
+/* 全域設定 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* 標題 */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: #666;
+}
+
+/* 主選單 */
+.main-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  font-size: 1.1em;
+  border: 2px solid #764ba2;
+  background: white;
+  color: #764ba2;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.tab-button:hover {
+  background: #f0e6ff;
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: transparent;
+}
+
+/* 濁音子選單 */
+.sub-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sub-tab-button {
+  padding: 8px 20px;
+  font-size: 1em;
+  border: 2px solid #e74c3c;
+  background: white;
+  color: #e74c3c;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sub-tab-button:hover {
+  background: #ffebee;
+}
+
+.sub-tab-button.active {
+  background: #e74c3c;
+  color: white;
+}
+
+/* 搜尋欄 */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#searchInput {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px 20px;
+  font-size: 1em;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+  border-color: #764ba2;
+}
+
+#randomButton, #resetButton {
+  padding: 12px 20px;
+  font-size: 1em;
+  background: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+#randomButton:hover, #resetButton:hover {
+  background: #e67e22;
+  transform: translateY(-2px);
+}
+
+#resetButton {
+  background: #3498db;
+}
+
+#resetButton:hover {
+  background: #2980b9;
+}
+
+/* 統計資訊 */
+.stats {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+/* 卡片網格 */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px 10px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-color: #764ba2;
+}
+
+.card.selected {
+  border-color: #e74c3c;
+  background: #fff5f5;
+}
+
+.card-char {
+  font-size: 3em;
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.card-romaji {
+  font-size: 1.1em;
+  color: #764ba2;
+  font-weight: bold;
+}
+
+.card-type {
+  font-size: 0.8em;
+  color: #999;
+  margin-top: 5px;
+}
+
+/* 詳細資訊面板 */
+.detail-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  text-align: center;
+  min-width: 300px;
+}
+
+.detail-content {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  font-size: 2em;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.detail-char {
+  font-size: 8em;
+  margin: 20px 0;
+  color: #333;
+}
+
+.detail-info {
+  font-size: 1.2em;
+  line-height: 2;
+  color: #666;
+}
+
+#playSound {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#playSound:hover {
+  background: #229954;
+}
+
+/* 測驗區 */
+.quiz-section {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.quiz-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.quiz-container {
+  text-align: center;
+}
+
+.quiz-romaji {
+  font-size: 3em;
+  font-weight: bold;
+  color: #e74c3c;
+  margin: 20px 0;
+}
+
+.quiz-type {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.quiz-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.quiz-option {
+  padding: 15px 30px;
+  font-size: 2em;
+  background: white;
+  border: 3px solid #ddd;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.quiz-option:hover {
+  background: #f0e6ff;
+  border-color: #764ba2;
+  transform: scale(1.1);
+}
+
+.quiz-option.correct {
+  background: #27ae60;
+  color: white;
+  border-color: #27ae60;
+}
+
+.quiz-option.wrong {
+  background: #e74c3c;
+  color: white;
+  border-color: #e74c3c;
+}
+
+.quiz-result {
+  font-size: 1.2em;
+  margin: 15px 0;
+  min-height: 30px;
+}
+
+.quiz-next {
+  padding: 12px 30px;
+  font-size: 1.1em;
+  background: #764ba2;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.quiz-next:hover {
+  background: #667eea;
+}
+
+.quiz-score {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #333;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  header h1 {
+    font-size: 1.8em;
+  }
+  
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+  
+  .card-char {
+    font-size: 2.5em;
+  }
+  
+  .detail-panel {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  .detail-char {
+    font-size: 5em;
+  }
+}
